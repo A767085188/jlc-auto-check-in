@@ -57,7 +57,7 @@ def extract_token_from_local_storage(driver):
     try:
         token = driver.execute_script("return window.localStorage.getItem('X-JLC-AccessToken');")
         if token:
-            log(f"✅ 成功从 localStorage 提取 token: {token[:37]}...")
+            log(f"✅ 成功从 localStorage 提取 token: {token[:37]}")
             return token
         else:
             alternative_keys = [
@@ -69,7 +69,7 @@ def extract_token_from_local_storage(driver):
             for key in alternative_keys:
                 token = driver.execute_script(f"return window.localStorage.getItem('{key}');")
                 if token:
-                    log(f"✅ 从 localStorage 的 {key} 提取到 token: {token[:37]}...")
+                    log(f"✅ 从 localStorage 的 {key} 提取到 token: {token[:37]}")
                     return token
     except Exception as e:
         log(f"❌ 从 localStorage 提取 token 失败: {e}")
@@ -1291,10 +1291,10 @@ def main():
         all_results = execute_final_retry_for_failed_accounts(all_results, usernames, passwords, total_accounts)
     
     # 输出详细总结
-    log("=" * 70)
+    log("=" * 23)
     in_summary = True  # 启用总结收集
     log("📊 详细签到任务完成总结")
-    log("=" * 70)
+    log("=" * 23)
     
     oshwhub_success_count = 0
     jindou_success_count = 0
